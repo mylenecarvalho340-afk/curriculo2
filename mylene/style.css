@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-principal: #7950a1;
+    --cor-escura: #50316b;
+    --cor-clara: #f5effa;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eee9f2;
+    color: #333;
+    padding: 25px 15px;
+    line-height: 1.6;
+}
+
+/* Temas de cores */
+body.tema-roxo {
+    --cor-principal: #7950a1;
+    --cor-escura: #50316b;
+    --cor-clara: #f5effa;
+}
+
+body.tema-rosa {
+    --cor-principal: #d45b91;
+    --cor-escura: #8e315b;
+    --cor-clara: #fff0f6;
+}
+
+body.tema-azul {
+    --cor-principal: #3478b8;
+    --cor-escura: #204c79;
+    --cor-clara: #edf6ff;
+}
+
+body.tema-verde {
+    --cor-principal: #39856b;
+    --cor-escura: #245742;
+    --cor-clara: #edf8f1;
+}
+
+body.tema-preto {
+    --cor-principal: #424242;
+    --cor-escura: #202020;
+    --cor-clara: #f0f0f0;
+}
+
+/* Barra de ferramentas */
+.ferramentas {
+    max-width: 850px;
+    margin: 0 auto 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button,
+select {
+    font: inherit;
+    padding: 10px 14px;
+    border-radius: 7px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+button {
+    background: var(--cor-principal);
+    color: white;
+    border: none;
+}
+
+button:hover,
+.botao:hover {
+    filter: brightness(0.9);
+}
+
+select {
+    background: white;
+    color: #333;
+}
+
+/* Currículo */
+.curriculo {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-top: 8px solid var(--cor-principal);
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Cabeçalho */
+.cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid var(--cor-clara);
+}
+
+.foto {
+    width: 100px;
+    height: 100px;
+    flex :0 0 80px;
+    min-width: 80px;
+    max-width: 80px;
+    padding: 0;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.identificacao h1 {
+    color: var(--cor-escura);
+    font-size: 30px;
+    overflow-wrap: anywhere;
+}
+
+.cargo {
+    color: var(--cor-principal);
+    font-weight: bold;
+}
+
+/* Seções */
+section {
+    margin-top: 25px;
+}
+
+section h2 {
+    font-size: 19px;
+    color: var(--cor-escura);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--cor-clara);
+}
+
+section p,
+section li {
+    font-size: 14px;
+}
+
+.item {
+    margin-bottom: 15px;
+}
+
+.item h3 {
+    color: #444;
+    font-size: 15px;
+}
+
+ul {
+    padding-left: 22px;
+}
+
+.habilidades {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.habilidades li {
+    background: var(--cor-clara);
+    padding: 10px;
+    border-left: 3px solid var(--cor-principal);
+    border-radius: 5px;
+}
+
+/* Links de contato */
+a {
+    color: var(--cor-principal);
+    overflow-wrap: anywhere;
+}
+
+.botoes-contato {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.botao {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--cor-principal);
+    color: white;
+    padding: 9px 15px;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid var(--cor-clara);
+    color: var(--cor-principal);
+    font-size: 13px;
+}
+
+/* Destaque para texto editável */
+[contenteditable="true"]:focus {
+    outline: 2px dashed var(--cor-principal);
+    outline-offset: 3px;
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .curriculo {
+        padding: 22px;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .identificacao h1 {
+        font-size: 24px;
+    }
+
+    .habilidades {
+        grid-template-columns: 1fr;
+    }
+
+    .ferramentas {
+        flex-direction: column;
+    }
+
+    .ferramentas button,
+    .ferramentas select {
+        width: 100%;
+    }
+}
+
+/* Impressão e PDF */
+@media print {
+    @page {
+        size: A4;
+        margin: 12mm;
+    }
+
+    body {
+        padding: 0;
+        background: white;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .ferramentas,
+    .botoes-contato {
+        display: none !important;
+    }
+
+    .curriculo {
+        max-width: 100%;
+        padding: 15px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    section {
+        break-inside: avoid;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+img {
+  width: 80px;
+  height: auto; /* Mantém a proporção original */
+}
